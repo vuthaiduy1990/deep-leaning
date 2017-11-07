@@ -1,3 +1,6 @@
+<img src="https://github.com/vuthaiduy1990/deep-leaning/blob/master/src/assets/gallery/neural_network.png" alt="alt text">
+<img src="https://github.com/vuthaiduy1990/deep-leaning/blob/master/src/assets/gallery/image-kernel.png" alt="alt text">
+
 # FrontendWebview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
