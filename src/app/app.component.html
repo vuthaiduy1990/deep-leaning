@@ -1,0 +1,38 @@
+<div id="appError" class="alert-error"></div>
+<div id="appSuccess" class="alert-success"></div>
+<div id="appWarning" class="alert-warn"></div>
+
+<nav class="navbar navbar-default navbar-inverse app-top-navbar" *ngIf="isTopbarVisible()">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+                <img src="assets/images/logo.png"><span>GraphicsMiner</span></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse collapse" id="top-navbar-collapse">
+            <ul class="nav navbar-nav app-link">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Playground <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a routerLink="/kernel" routerLinkActive="active">Image Kernel</a></li>
+                        <li><a routerLink="/neural-network" routerLinkActive="active">Neural Network</a></li>
+                    </ul>
+                </li>                
+            </ul>
+            <div class="social-link navbar-right">
+                <a target="_blank" href="https://www.facebook.com/Graphicsminer-Lab-759137610930799/"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                <a target="_blank" href="https://twitter.com/graphicsminer"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                <a><i class="fa fa-google fa-2x" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

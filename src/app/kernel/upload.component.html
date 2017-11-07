@@ -1,0 +1,25 @@
+<div id="uploadContainer">
+    <div>
+        <button md-button id="uploadBtn" (click)='inputUpload.click()'>Select Image</button>
+        <input #inputUpload type="file" style="display: none;" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div class="circle-progress">
+        <div class="c100 p{{uploader?.progress}} green small">
+            <span style="color: blue;">{{uploadInfo?.progress || 0}}%</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <div class="average-speed">
+        <label>Average Speed</label>
+        <br>
+        <label *ngIf="uploadInfo">{{uploadInfo.speed}} KB/s</label>
+    </div>
+    <div class="summary">
+        <label>Summary</label>
+        <br>
+        <label *ngIf="uploadInfo">{{uploadInfo.size}} KB in {{uploadInfo.totalTime}} seconds</label>
+    </div>
+</div>

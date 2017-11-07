@@ -1,0 +1,90 @@
+<div class="neural-page">
+    <!-- Toobar Panel -->
+    <!-- <div><toolbar #toolbar></toolbar></div> -->
+    <div id="networkPanel" class="vis-panel">
+        <!-- input layer -->
+        <div class="in-panel" id="inPanel">
+            <label>Inputs</label>
+        </div>
+        <!-- network layer -->
+        <div class="net-panel" id="netPanel">
+            <div class="toolbar">
+                <div class="layer-plus-minus">
+                    <i class="fa fa-plus-circle fa-3x" aria-hidden="true" (click)="_onIncreaseLayerClick()"></i>
+                    <i class="fa fa-minus-circle fa-3x" aria-hidden="true" (click)="_onDecreaseLayerClick()"></i>
+                    <span>&nbsp;{{_network.hiddenLayers.length}} hidden layers&nbsp;</span>
+                </div>
+            </div>
+            <div class="main"></div>
+        </div>
+        <!-- output layer -->
+        <div class="out-panel" id="outPanel">
+            <div class="header">
+                <div class="result-info">
+                    <span>Test Lost: {{_lossTrain.toFixed(4)}}</span>
+                    <span>Training Lost: {{_lossTest.toFixed(4)}}</span>
+                </div>
+            </div>
+            <div class="play-result">
+                <div class="play">
+                    <span class="epod">Epoch<span>{{getEpoch()}}</span></span>
+                    <i class="fa fa-refresh fa-lg" aria-hidden="true" (click)="_onReloadClick()"></i>
+                    <i class="fa fa-5x fa-run" [class.fa-play-circle]="!(_isRunning && !_isPause)" [class.fa-pause-circle]="_isRunning && !_isPause" aria-hidden="true" (click)="_onStartClick()"></i>
+                    <i class="fa fa-step-forward fa-lg" aria-hidden="true" (click)="_onStepClick()"></i>
+                    <i>&nbsp;</i>
+                </div>
+                <div class="result">
+                    <canvas class="heatmap"></canvas>
+                    <svg class="vis-data" (dblclick)="_onCustomDataDialogOpened()"></svg>
+                </div>
+            </div>
+            <div class="settings">
+                <div class="i-setting-box">
+                    <md-select style="margin-bottom: 12px;" placeholder="DataSet" [ngModel]="_options.dataset.toString()" (change)='_onDatasetChanged($event.value)'>
+                        <md-option *ngFor="let type of _datasetList" [value]='type.toString()'>{{type}}</md-option>
+                    </md-select>
+                    <md-input-container>
+                        <input mdInput type="number" placeholder="K-Fold Cross Validation" [value]="_options.kfold" [min]="MIN_KFOLD" [max]="MAX_KFOLD" (change)='_onKFoldChanged($event.target.value)'>
+                    </md-input-container>
+                    <md-checkbox class="show-test" [checked]="_options.showTestData" (change)="_onShowTestData($event.checked)">Show Test Data</md-checkbox>
+                    <md-input-container>
+                        <input mdInput type="number" placeholder="Batch Size" [value]="_options.batch" [min]="MIN_BATCH_SIZE" [max]="MAX_BATCH_SIZE" (change)='_onBatchSizeChanged($event.target.value)'>
+                    </md-input-container>
+                    <div class="noise">
+                        <span>Noise: {{_options.noise}}</span>
+                        <md-slider [min]="MIN_NOISE" [max]="MAX_NOISE" step="2" thumb-label="true" [value]="_options.noise" (change)='_onNoiseChanged($event.value)'></md-slider>
+                    </div>
+                </div>
+                <div class="net-setting-box">
+                    <div class="Gradient Descent">
+                        <md-select placeholder="Gradient Descent" [ngModel]="_options.gradientDescent.toString()" (change)='_onGradientTypeChanged($event.value)'>
+                            <md-option *ngFor="let type of GRADIENT_DESCENT" [value]='type.toString()'>{{type}}</md-option>
+                        </md-select>
+                    </div>
+                    <div class="learning-rate margin">
+                        <md-select placeholder="Learning Rate" [ngModel]="_options.learningRate.toString()" (change)='_onLearningRateChanged($event.value)'>
+                            <md-option *ngFor="let lrate of LEARNING_RATES" [value]='lrate.toString()'>{{lrate}}</md-option>
+                        </md-select>
+                    </div>
+                    <div class="activation margin">
+                        <md-select placeholder="Activation" [ngModel]="_options.activation.toString()" (change)='_onActivationChanged($event.value)'>
+                            <md-option *ngFor="let act of ACTIVATIONS" [value]="act.toString()">{{act.toString()}}</md-option>
+                        </md-select>
+                    </div>
+                    <div class="regularization margin">
+                        <md-select placeholder="Regularization" [ngModel]="_options.regularization.toString()" (change)='_onRegularizationChanged($event.value)'>
+                            <md-option *ngFor="let reg of REGULARIZATION" [value]='reg.toString()'>{{reg}}</md-option>
+                        </md-select>
+                    </div>
+                    <div class="regularization-rate margin">
+                        <md-select placeholder="Regularization Rate" [ngModel]="_options.regularizationRate.toString()" (change)='_onRegularizationRateChanged($event.value)'>
+                            <md-option *ngFor="let rate of REGULARIZATION_RATES" [value]='rate.toString()'>{{rate}}</md-option>
+                        </md-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- connection links -->
+        <svg class="net-links"></svg>
+    </div>
+</div>

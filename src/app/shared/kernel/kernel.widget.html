@@ -1,0 +1,7 @@
+<div class="kernel-widget">
+    <table class="k-table">
+        <tr *ngFor="let i of kernel.rowIndexs">
+            <td class="k-td" [class.k-td-hover]="animation" *ngFor="let j of kernel.colIndexs" (wheel)="_onCellMouseWheel($event, i, j)" (click)="_onCellClick($event, i, j)" (contextmenu)="_onCellContextMenu($event, i, j)">{{getKernelCell(i, j)}}</td>
+        </tr>
+    </table>
+</div>

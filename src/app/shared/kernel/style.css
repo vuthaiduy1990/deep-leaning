@@ -1,0 +1,25 @@
+.kernel-widget {
+    text-align: center;
+}
+
+.kernel-widget .k-table {
+    border-spacing: 2px;
+    border-collapse: separate;
+    margin: auto;
+}
+
+.kernel-widget .k-table tr {
+    /*display: block;*/
+}
+
+.kernel-widget .k-td {
+    border: 2px solid gray;
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+    transition: padding 1s, background-color 1s;
+}
+
+.kernel-widget .k-td-hover:hover {
+    padding: 10px 20px 10px 20px;
+    background-color: #f6546a;
+}

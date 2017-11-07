@@ -1,0 +1,15 @@
+<a-scene embedded class="vis-3d">
+    <!-- <a-entity camera look-controls position="15 0 -17" rotation="0 130 0">
+    </a-entity> -->
+
+    <a-entity position="-1 2 -4" rotation="0 -15 0">
+        <a-plane #srcImageEl1 src="" width="4" height="3" position="-3 0 0" rotation="0 30 0"></a-plane>
+        <a-plane #srcImageEl2 src="" width="4" height="3" position="-3 0 0" rotation="0 -150 0"></a-plane>
+
+        <a-box scale="0.5 0.5 0.5" position="0 0 0" src="./assets/images/kernel-box.texture.jpg" rotation="45 0 45"></a-box>
+        <a-cylinder color="red" height="8" radius="0.02" position="0 0 0" rotation="0 0 90 "></a-cylinder>
+
+        <a-plane #destImageEl1 src="" width="4" height="3" position="3 0 0" rotation="0 30 0"></a-plane>
+        <a-plane #destImageEl2 src="" width="4" height="3" position="3 0 0" rotation="0 -150 0"></a-plane>
+    </a-entity>
+</a-scene>

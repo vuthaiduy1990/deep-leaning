@@ -1,0 +1,33 @@
+<div id="customDataDialog">
+    <div class="header">
+        <h1 md-dialog-title>Customize Your Data</h1>
+        <input type="text" placeholder="Type dataset name" [(ngModel)]="_name" (keyup)="_onNameChanged($event.target.value)">
+        <div class="name-msg">{{_nameError}}</div>
+    </div>
+    <hr>
+    <div md-dialog-content>
+        <div class="main">
+            <div class="color-list">
+                <canvas class="color-item" *ngFor="let c of COLORS" [style.background]='c' (click)="_onSelectColor(c)"></canvas>
+            </div>
+            <div>
+                <svg width="400" height="400" id="board" class="board">
+                    <rect id="plane" x="0" y="0" width="400" height="400" style="fill:#dae6f1; fill-opacity:0.6"></rect>
+                </svg>
+            </div>
+            <div class="toolbar">
+                <div class="tools">
+                    <div class="clear-icon" [class.active]="_isClearSelected" [style.background-image]="CLEAR_ICON" (click)="_onClearClicked()"></div>
+                    <div class="clear-all" (click)="_onClearAllClicked()">Clear All</div>
+                    <div class="reload-icon" [style.background-image]="RELOAD_ICON" (click)="_onReloadClicked()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div md-dialog-actions>
+        <i class=" fa fa-trash fa-2x " aria-hidden="true" (click)="_onRemoved()" *ngIf="!dataset.isDefault"></i>
+        <button md-button (click)="_onSaveClicked()" *ngIf="!dataset.isDefault">Save</button>
+        <button md-button (click)="_onSaveAsNewClicked()">Save As New</button>
+        <button md-button (click)="dialogRef.close()">Cancel</button>
+    </div>
+</div>

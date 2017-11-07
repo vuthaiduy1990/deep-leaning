@@ -1,0 +1,486 @@
+.neural-page {
+    background-color: #f7f7f7;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.vis-panel {
+    height: 600px;
+    transform: translate(0px, 0px);
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+i.fa {
+    cursor: pointer;
+}
+
+i.fa:hover {
+    opacity: 0.5
+}
+
+canvas {
+    cursor: pointer;
+}
+
+canvas:hover {
+    opacity: 0.6;
+}
+
+
+/* Customize button css */
+
+button[md-button] {
+    background: lightgray;
+}
+
+
+/* Custom css of md-select */
+
+.mat-option {
+    font-size: 13px !important;
+    line-height: 35px !important;
+    height: 35px !important;
+}
+
+.mat-select-placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+.mat-input-placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+
+/* ============================ Input Layer ============================ */
+
+.vis-panel .in-panel {
+    width: 100px;
+    /*margin-top: 50px;*/
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.in-panel .main {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.in-panel .layer {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0px;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.in-panel .layer .node {
+    background-color: #4fbb57;
+}
+
+
+/* ============================ Network Layer ============================ */
+
+.vis-panel .net-panel {
+    /* 50px to avoid breaking layout*/
+    width: calc(720px + 80px);
+    margin-left: 50px;
+    text-align: center;
+    box-shadow: 0 1px 4px #ccc;
+}
+
+.net-panel .toolbar {
+    height: 100px;
+    display: inline-flex;
+    align-items: baseline;
+    padding-top: 5px;
+}
+
+.net-panel .layer-plus-minus {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 8px;
+}
+
+.net-panel .layer-plus-minus span {
+    font-size: 20px;
+    text-transform: lowercase;
+    position: relative;
+}
+
+.net-panel .main {
+    height: calc(100% - 100px);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid lightblue;
+}
+
+.net-panel .hidden-layer {
+    height: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.net-panel .hidden-layer .node {
+    background-color: #4970ff;
+}
+
+.net-panel .node-plus-minus {
+    position: absolute;
+    top: 66px;
+    margin-left: -6px;
+}
+
+.net-panel .num-neurals {
+    font-size: 9px;
+}
+
+@keyframes a-layer-more {
+    from {
+        font-size: 2em;
+    }
+    to {
+        font-size: 4em;
+    }
+}
+
+.net-panel i.layer-more {
+    animation-name: a-layer-more;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transition: font-size 0.5s;
+}
+
+.net-panel i.node-more {
+    animation-name: a-layer-more;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    transition: font-size 0.5s;
+}
+
+
+/* ============================ Output Layer ============================ */
+
+.vis-panel .out-panel {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    width: 350px;
+}
+
+.out-panel .header {
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.out-panel .result-info {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.out-panel .play {
+    margin-right: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.out-panel .epod {
+    color: #777;
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.out-panel .epod span {
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+}
+
+.out-panel .play-result {
+    display: inline-flex;
+    align-items: center;
+}
+
+.out-panel div.result {
+    position: relative;
+}
+
+.out-panel canvas.heatmap {
+    width: 260px;
+    height: 260px;
+}
+
+.out-panel svg.vis-data {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.out-panel .settings {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.out-panel .settings .mat-select-trigger {
+    font-size: 14px;
+    height: 20px;
+    font-weight: 400;
+}
+
+.out-panel .i-setting-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 1px 4px #ccc;
+    padding-top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+}
+
+.out-panel .i-setting-box md-select {
+    width: 130px;
+}
+
+.out-panel .i-setting-box md-input-container {
+    width: 130px;
+}
+
+.out-panel .i-setting-box .show-test {
+    font-size: 11px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.out-panel .noise {
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.out-panel .noise md-slider {
+    width: 130px;
+}
+
+.out-panel .net-setting-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 1px 4px #ccc;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+}
+
+.out-panel .net-setting-box md-select {
+    width: 160px;
+}
+
+.out-panel .net-setting-box .margin {
+    margin-top: 29px;
+}
+
+
+/* ============================ Network Link ============================ */
+
+.vis-panel .net-links {
+    position: absolute;
+    /*Disable mouse event on svg so that we can select other HTML element under svg*/
+    pointer-events: none;
+    left: 0px;
+    top: 0px;
+}
+
+@keyframes linkflow {
+    from {
+        stroke-dasharray: 8 2 8 2;
+    }
+    to {
+        stroke-dasharray: 8 4 8 4;
+    }
+}
+
+.vis-panel .net-links line {
+    stroke: black;
+    stroke-width: 1;
+    stroke-opacity: 0.3;
+    stroke-dasharray: 8 2 8 2;
+    animation-name: linkflow;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    /*allow mouse event on line*/
+    pointer-events: visible;
+}
+
+.vis-panel .net-links line.in {
+    stroke: green;
+    stroke-opacity: 0.6;
+}
+
+.vis-panel .net-links line.out {
+    stroke: green;
+    stroke-opacity: 0.6;
+}
+
+.vis-panel .net-links line:hover {
+    stroke-opacity: 1;
+    stroke-width: 1.5;
+}
+
+.vis-panel .net-links line.node-hover {
+    stroke-opacity: 1;
+    stroke-width: 1.5;
+    stroke: red;
+}
+
+
+/* ============================ Customize Data Dialog ============================ */
+
+@keyframes a-color {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+#customDataDialog .header {
+    display: inline-flex;
+    align-items: baseline;
+    margin-bottom: -20px;
+}
+
+#customDataDialog .header input {
+    margin-left: 20px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#customDataDialog .header .name-msg {
+    margin-left: 15px;
+    color: red;
+    font-weight: 400;
+}
+
+#customDataDialog div[md-dialog-content] {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#customDataDialog div.main {
+    display: inline-flex;
+}
+
+#customDataDialog .color-list {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#customDataDialog canvas.color-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid #333;
+}
+
+#customDataDialog svg.board {
+    cursor: pointer;
+}
+
+#customDataDialog circle.data {
+    stroke: black;
+    stroke-width: 1px;
+}
+
+#customDataDialog .toolbar {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#customDataDialog .toolbar .tools {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#customDataDialog .clear-icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#customDataDialog .clear-icon.active {
+    border: 3px solid burlywood;
+    border-radius: 15px;
+}
+
+#customDataDialog .clear-all {
+    margin-top: 10px;
+    font-size: 11px;
+    padding: 5px;
+    background: rgb(130, 221, 71);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#customDataDialog .reload-icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#customDataDialog div[md-dialog-actions] {
+    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#customDataDialog div[md-dialog-actions] button[md-button] {
+    margin-left: 10px;
+}
+
+
+/* ====================== Specific Style for IE and Edge ====================== */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {}
+
+@supports (-ms-ime-align:auto) {}

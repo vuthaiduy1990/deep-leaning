@@ -1,0 +1,119 @@
+.kernel-page {
+    background-color: #f7f7f7;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+
+/* Customize button css */
+
+button[md-button] {
+    background: lightgray;
+
+}
+i.fa {
+    cursor: pointer;
+}
+
+
+/* Custom css of md-select */
+
+.mat-option {
+    font-size: 13px !important;
+    line-height: 35px !important;
+    height: 35px !important;
+}
+
+.mat-select-placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+
+/* ============================ Kernel Page ============================= */
+
+.k-main {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* ========================== Upload Component=========================== */
+
+#uploadContainer {
+    display: inline-flex;
+    align-items: center;
+}
+
+#uploadContainer #uploadBtn {
+    height: 50px;
+    background: steelblue;
+}
+
+#uploadContainer div.circle-progress {
+    margin-left: 80px;
+}
+
+#uploadContainer div.average-speed {
+    display: inline;
+    margin-left: 80px;
+}
+
+#uploadContainer div.summary {
+    margin-left: 80px;
+    display: inline;
+}
+
+
+/* ========================== Vis-2D Component=========================== */
+
+#vis2d {
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+}
+
+#vis2d .src-image {
+    max-width: 300px;
+}
+
+#vis2d .k-run-table {
+    position: absolute;
+    visibility: hidden;
+}
+
+#vis2d .k-run-table td {
+    border: 1px dashed red;
+}
+
+#vis2d .dot {
+    margin-left: 65px;
+}
+
+#vis2d .vis-kernel {
+    margin-left: 35px;
+}
+
+#vis2d .vis-kernel md-select {
+    margin-top: 10px;
+}
+
+#vis2d .play {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 50px;
+    align-items: center;
+}
+
+#vis2d .result {
+    margin-left: 65px;
+}
+
+
+/* ====================== Specific Style for IE and Edge ====================== */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {}
+
+@supports (-ms-ime-align:auto) {}

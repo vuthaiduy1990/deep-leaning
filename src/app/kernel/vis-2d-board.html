@@ -1,0 +1,30 @@
+<div id="vis2d">
+    <div *ngIf="imageSrcData && imageSrc != ''">
+        <img class="src-image" #srcImageEl [src]="imageSrcData" (load)="_onImageSrcLoaded()">
+        <table class='k-run-table' #kRunTableEl>
+            <tr *ngFor="let i of _kernel.rowIndexs">
+                <td class="k-td" *ngFor="let j of _kernel.colIndexs" [style.background]="getColorForRunningTableCell
+(i, j)"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="dot">
+        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+    </div>
+    <div class="vis-kernel">
+        <label>{{_kernel.name}}</label>
+        <kernel-widget #kernelEl [kernel]="_kernel"></kernel-widget>
+        <md-select [ngModel]="_kernel.toString()" (change)='_onKernelTypeChanged($event.value)'>
+            <md-option *ngFor="let ker of KERNEL_LIST" [value]='ker.toString()'>{{ker.toString()}}</md-option>
+        </md-select>
+    </div>
+    <div class="play">
+        <i class="fa fa-refresh fa-lg" aria-hidden="true" (click)='_onReloadBtnClicked()'></i>
+        <i class="fa fa-5x fa-run" aria-hidden="true" [class.fa-play-circle]="!isAnimating" [class.fa-pause-circle]="isAnimating" (click)='_onPlayBtnClicked()'></i>
+        <i class="fa fa-step-forward fa-lg" aria-hidden="true" (click)='_onStepBtnClicked()'></i>
+        <i>&nbsp;</i>
+    </div>
+    <div class="result">
+        <canvas #destImageEl></canvas>
+    </div>
+</div>
